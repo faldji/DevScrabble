@@ -30,7 +30,7 @@ public class Dictionnaire {
 	   File file= new File("DICO.txt");
 	//renvoie le fichier DICO.txt
 	   try
-	   { Scanner sc = new Scanner(new File(getClass().getResource("Dico.txt").getFile()));
+	   { Scanner sc = new Scanner(new File(getClass().getResource("DICO.txt").getFile()));
            Dictionnaire = new ArrayList<>();
            while (sc.hasNext()) {
                Dictionnaire.add(sc.next());

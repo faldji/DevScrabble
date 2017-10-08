@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class Sac {
 
@@ -187,7 +188,24 @@ public class Sac {
 		
 		Collections.shuffle(contenusac); //mélange les lettres dans le sac (utile par la suite pour la pioche)
 	}
+	/*Debut modification Faldji */
 	
+	//retourne le nombre de lettre restant dans le sac tailleSac()
+	public int tailleSac() {
+		return contenusac.size();
+	}//fin tailleSac()
+	
+	//Fonction TireLettres() retire au hasard des lettres du sac 
+	//peut servir pour remplire la main du Joueur en cours.
+	public Lettre TireLettres() {
+        int max = contenusac.size() - 1;
+        Random hasard = new Random();
+        int Lettretiree = hasard.nextInt(max + 1);
+
+        return contenusac.remove(Lettretiree);
+    }//fin TireLettres()
+	
+	/*Fin modification Faldji */
 	
 	//Pour tester le contenu du sac
 	public void contenudusac(){
@@ -199,6 +217,5 @@ public class Sac {
 		}
 		
 	}
-	
 	
 }

@@ -23,13 +23,16 @@ public class Main {
 		
 		Menu menu=new Menu(J1,s1);
 		
+		Dictionnaire d=new Dictionnaire();
+		Plateau1 plateau = new Plateau1();
+		
 		int choixaction;
 		
 		s1.remplirsac();
-		//s1.contenudusac(); //C'était juste pour vérifier que le sac soit remplit correctement
+		//s1.contenudusac(); //C'Ã©tait juste pour vÃ©rifier que le sac soit remplit correctement
 		J1.main.creationmain();
 		J1.main.affichermain();
-		//s1.contenudusac(); //C'était juste pour vérifier que le sac soit remplit correctement apres la pioche
+		//s1.contenudusac(); //C'Ã©tait juste pour vÃ©rifier que le sac soit remplit correctement apres la pioche
 		menu.affichermenu();
 		System.out.println("\nVotre choix : ");
 		choixaction=sc.nextInt(); //choix de l'action a effectuer
@@ -37,6 +40,7 @@ public class Main {
 		//J1.main.affichermain();  //test
 		//s1.contenudusac();	//test
 		
+		//d.dico();  //A utiliser quand on aura besoin de vÃ©rifier des mots --> mais fonctionne bien
 		
 
 	}

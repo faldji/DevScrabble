@@ -45,7 +45,7 @@ public class Menu {
 		switch(choixaction)
 	    {
         case 1 :
-        	System.out.println("Faudra faire la méthode pour poser un mot");
+        	System.out.println("Faudra faire la mÃ©thode pour poser un mot");
         break;
         
         case 2:
@@ -68,7 +68,7 @@ public class Menu {
 		System.out.println("Combien de lettres souhaitez vous changer?\n");
 		nblettres=sc.nextInt();
 		
-		while(1>=nblettres || nblettres<=7){    //on ne peut pas rentrer autre chose qu'un nombre entre 1 et 7
+		while(1>nblettres || nblettres>7){    //on ne peut pas rentrer autre chose qu'un nombre entre 1 et 7
 			System.out.println("Combien de lettres souhaitez vous changer?\n");
 			nblettres=sc.nextInt();
 		}

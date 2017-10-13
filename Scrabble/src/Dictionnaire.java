@@ -6,18 +6,18 @@ import java.util.Scanner;
 
 public class Dictionnaire {
  private static ArrayList<String> Dictionnaire;
- public static void main(String[] args) {
+ public static void dico() {
 	 System.out.println("Chargement du dictionnaire en cours...");
 	   Dictionnaire dico = new Dictionnaire();
 	   System.out.println();
-	   System.out.println("[Effectué]  Chargement du dictionnaire terminé");
+	   System.out.println("[EffectuÃ©]  Chargement du dictionnaire terminÃ©");
 	   System.out.println();
 	   System.out.println("Tester la Fonction verifie ? 'O' ou 'N'");
 	   Scanner scv1 = new Scanner(System.in);
 	   String OuiNonv1 =  scv1.nextLine();
 	   Scanner scMot1 = new Scanner(System.in);
 	   while(OuiNonv1.charAt(0) == 'O'|| OuiNonv1.charAt(0) == 'o') {
-		   System.out.println("Entrer un Mot à verifier");
+		   System.out.println("Entrer un Mot Ã  verifier");
 		   
 	   // Test de mot avec la methode verifie des lettres ci-dessus 
 	   System.out.println(dico.verifie1(scMot1.nextLine()));
@@ -64,7 +64,7 @@ public class Dictionnaire {
         return Dictionnaire.size();
     }
 
-    //Retourner un mot dans la liste du Dico au Param donné.
+    //Retourner un mot dans la liste du Dico au Param donnÃ©.
     public String get(int i) {
         return Dictionnaire.get(i);
     }

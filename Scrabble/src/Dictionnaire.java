@@ -25,6 +25,16 @@ public class Dictionnaire {
 	   OuiNonv1 =  scv1.nextLine();}
 	   
  }
+//recherche un mot dans le Dictionnaire
+ public boolean verifie1(String mot) {
+ 	if(mot.length() <= 1) {
+ 		return false;
+ 	}
+ 	else {
+     return Dictionnaire.stream().anyMatch((motactuel) -> (mot.equalsIgnoreCase(motactuel)));
+ 	}
+ 
+ }//Fin verification
  public Dictionnaire() {   
 	 
 	   File file= new File("DICO.txt");
@@ -42,31 +52,32 @@ public class Dictionnaire {
 	   }
  }
 
-    //recherche un mot dans le Dictionnaire
-    public boolean verifie1(String mot) {
-    	if(mot.length() <= 1) {
-    		return false;
-    	}
-    	else {
-        return Dictionnaire.stream().anyMatch((motactuel) -> (mot.equalsIgnoreCase(motactuel)));
-    	}
-    
-    }//Fin verification
     
     
-    public boolean verifie2(String mot) {
-       return false;
-       //En cours de dev Faldji
-       }
     
+    public static boolean verifie2(Mot mot) {
+    	if(mot.getLength() <= 1) {
+     		return false;
+     	}
+     	else {
+         return Dictionnaire.stream().anyMatch((motact) -> (mot.equals(motact)));
+     	}
+     
+     }
+    
+
+    
+  
+    
+
     //Taille du dictionnaire
+   
     public int size() {
         return Dictionnaire.size();
     }
-
-    //Retourner un mot dans la liste du Dico au Param donné.
-    public String get(int i) {
-        return Dictionnaire.get(i);
-    }
-
+      //Retourner un mot dans la liste du Dico au Param donné.
+        public String get(int i) {
+            return Dictionnaire.get(i);
+        }
+    
 }//Fin de la classe Dictionnaire

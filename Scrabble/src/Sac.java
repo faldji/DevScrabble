@@ -1,9 +1,16 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
-public class Sac {
 
+public class Sac {
+	private static List caseSpecial = new ArrayList(); 
+	  protected List alphabet = new ArrayList(); // of String
+	  protected List Lettres = new ArrayList();  // of Lettre
+	  protected Map LettreMap = new HashMap(); 
 	protected boolean vide; //Je l'ai mis car permettra peut etre par le suite de l'utiliser pour l'arrête du jeu, si le sac est vide le jeu est fini
 	protected ArrayList<Lettre> contenusac; //Arraylist contenant les lettres dispo dans le sac
 	
@@ -217,5 +224,101 @@ public class Sac {
 		}
 		
 	}
+	public List getAlphabet()
+	  { return alphabet; } 
+
+	  public static CaseAbdoul[][] getTableau()
+	  { CaseAbdoul[][] res = new CaseAbdoul[15][15];
+	  caseSpecial = new ArrayList(); 
+
+	    for (int i = 0; i < 15; i++)
+	    { for (int j = 0; j < 15; j++)
+	      { setSimple(i,j,res); }
+	    }
+	    setDoubleL(3,7,res); 
+	    setDoubleL(11,7,res); 
+	    setDoubleL(3,0,res); 
+	    setDoubleL(11,0,res); 
+	    setDoubleL(6,2,res);
+	    setDoubleL(8,2,res);
+	    setDoubleL(0,3,res);
+	    setDoubleL(7,3,res);
+	    setDoubleL(14,3,res);
+	    setDoubleL(2,6,res); 
+	    setDoubleL(6,6,res); 
+	    setDoubleL(8,6,res); 
+	    setDoubleL(12,6,res); 
+	    setDoubleL(2,8,res); 
+	    setDoubleL(6,8,res); 
+	    setDoubleL(8,8,res); 
+	    setDoubleL(12,8,res); 
+	    setDoubleL(3,14,res); 
+	    setDoubleL(11,14,res); 
+	    setDoubleL(6,12,res);
+	    setDoubleL(8,12,res);
+	    setDoubleL(0,11,res);
+	    setDoubleL(7,11,res);
+	    setDoubleL(14,11,res);
+
+	    for (int x = 1; x <= 13; x = x + 4)
+	    { setTripleL(x,5,res); 
+	      setTripleL(x,9,res); 
+	    } 
+	    for (int x = 5; x <= 9; x = x + 4)
+	    { setTripleL(x,1,res); 
+	      setTripleL(x,13,res); 
+	    }  
+
+	    // set diagonals to dws:
+	    for (int i = 0; i < 15; i++)
+	    { setDoubleMot(i,i,res); 
+	      setDoubleMot(i,14-i,res);
+	    }
+
+	    setTripleMot(0,0,res);
+	    setTripleMot(7,0,res);
+	    setTripleMot(14,0,res);
+	    setTripleMot(0,7,res);
+	    setTripleMot(14,7,res);
+	    setTripleMot(0,14,res);
+	    setTripleMot(7,14,res);
+	    setTripleMot(14,14,res);
+	    return res; 
+	  }    
+
+	  private static void setTripleMot(int x, int y, CaseAbdoul[][] res)
+	  { MtCaseAbdoul tws = new MtCaseAbdoul(x,y);
+	    caseSpecial.add(0,tws); 
+	    res[x][y] = tws;
+	  }
+
+	  private static void setDoubleMot(int x, int y, CaseAbdoul[][] res)
+	  { MdCaseAbdoul dws = new MdCaseAbdoul(x,y);
+	    caseSpecial.add(0,dws); 
+	    res[x][y] = dws;
+	  }
+
+	  private static void setTripleL(int x, int y, CaseAbdoul[][] res)
+	  { LtCaseAbdoul tls = new LtCaseAbdoul(x,y);
+	    caseSpecial.add(0,tls); 
+	    res[x][y] = tls;
+	  }
+
+	  private static void setDoubleL(int x, int y, CaseAbdoul[][] res)
+	  { LdCaseAbdoul dls = new LdCaseAbdoul(x,y);
+	    caseSpecial.add(0,dls); 
+	    res[x][y] = dls;
+	  }
+
+	  private static void setSimple(int x, int y, CaseAbdoul[][] res)
+	  { SimpleCaseAbdoul os = new SimpleCaseAbdoul(x,y);
+	    res[x][y] = os;
+	  }
+
+	  public static List getcaseSpecial()
+	  { return (List) ((ArrayList) caseSpecial).clone(); } 
+
+	 
+
 	
 }
